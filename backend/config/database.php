@@ -1,8 +1,8 @@
 <?php
 
-$host = "localhost";
+$host = "mysql.railway.internal";
 $username = "root";
-$password = "";
+$password = "eZWkivAFgTERumAyvrPOqKXdwQOYPzbV";
 $database = "blood_bank_db";
 
 $conn = new mysqli($host, $username, $password, $database);
