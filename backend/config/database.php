@@ -1,17 +1,13 @@
 <?php
 
-$host = "mysql.railway.internal";
-$username = "root";
-$password = "eZWkivAFgTERumAyvrPOqKXdwQOYPzbV";
-$database = "blood_bank_db";
+echo "<pre>";
 
-$conn = new mysqli($host, $username, $password, $database);
+echo "PDO Loaded: ";
+var_dump(extension_loaded('pdo_mysql'));
 
-if ($conn->connect_error) {
-    die("Database Connection Failed: " . $conn->connect_error);
-}
+echo "\nMySQLi Loaded: ";
+var_dump(extension_loaded('mysqli'));
 
-// optional
-// echo "Database Connected";
+echo "</pre>";
 
-?>
+exit;
