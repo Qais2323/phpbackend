@@ -1,13 +1,19 @@
 <?php
 
-echo "<pre>";
+$host = $_ENV['MYSQLHOST'];
+$dbname = $_ENV['MYSQLDATABASE'];
+$user = $_ENV['MYSQLUSER'];
+$pass = $_ENV['MYSQLPASSWORD'];
 
-echo "PDO Loaded: ";
-var_dump(extension_loaded('pdo_mysql'));
+try {
+    $conn = new PDO(
+        "mysql:host=$host;dbname=$dbname",
+        $user,
+        $pass
+    );
 
-echo "\nMySQLi Loaded: ";
-var_dump(extension_loaded('mysqli'));
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-echo "</pre>";
-
-exit;
+} catch(PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
+}
